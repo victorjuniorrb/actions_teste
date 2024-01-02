@@ -1,0 +1,22 @@
+name: INIT_V1
+
+on:
+  push:
+    branches: [ "v2" ]
+  pull_request:
+    branches: [ "v2" ]
+
+  workflow_dispatch:
+
+jobs:
+  rsync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: rsync para dk01
+        uses: up9cloud/action-rsync@v1.4
+        env:
+          HOST: file.cett.dev.br
+          USER: deploy
+          KEY: ${{secrets.DEPLOY_SSH_KEY}}
+          TARGET: /data/volume/dev/actions_teste
