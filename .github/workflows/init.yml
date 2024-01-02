@@ -9,13 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  rsync:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: echo file conteudo
-        run: |
-          echo "cat init1"
-          cat init01
+      - name: rsync para dk01
+        uses: up9cloud/action-rsync@1.4
+        env:
+          HOST: file.cett.dev.br
+          USER: deploy
+          KEY: ${{secrets.DEPLOY_SSH_KEY}}
+          TARGET: /data/volume/dev/actions_teste
