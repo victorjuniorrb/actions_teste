@@ -2,9 +2,9 @@ name: INIT
 
 on:
   push:
-    branches: [ "v1" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "v1" ]
+    branches: [ "main" ]
 
   workflow_dispatch:
 
