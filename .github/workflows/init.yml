@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: rsync para dk01
-        uses: up9cloud/action-rsync@1.4
+        uses: up9cloud/action-rsync@v1.4
         env:
           HOST: file.cett.dev.br
           USER: deploy
