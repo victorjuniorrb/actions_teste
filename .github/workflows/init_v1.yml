@@ -1,4 +1,4 @@
-name: INIT
+name: INIT_V1
 
 on:
   push:
