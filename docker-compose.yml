@@ -1,0 +1,6 @@
+services:
+  app:
+    image: ghcr.io/victorjuniorrb/actions_teste:latest
+    restart: always
+    ports:
+      - 8000:80
