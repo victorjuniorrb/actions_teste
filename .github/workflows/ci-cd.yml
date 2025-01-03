@@ -64,15 +64,15 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=
 
-    #   - name: Prune container registry
-    #     uses: vlaurin/action-ghcr-prune@v0.6.0
-    #     with:
-    #       token: ${{ secrets.REGISTRY_TOKEN }}
-    #       user: ${{ github.repository_owner }} 
-    #       container: ${{ github.event.repository.name }}
-    #       dry-run: true
-    #       prune-tags-regexes: |
-    #         ^sha-
-    #       prune-untagged: true
-    #       keep-younger-than: 7
-    #       keep-last: 3% 
+      - name: Prune container registry
+        uses: vlaurin/action-ghcr-prune@v0.6.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }} 
+          container: ${{ github.event.repository.name }}
+          dry-run: false
+          prune-tags-regexes: |
+            ^sha-
+          prune-untagged: true
+          keep-younger-than: 7
+          keep-last: 3
